@@ -1,7 +1,4 @@
 import { useState } from 'react'
-import Birth from './components/birth.jsx'
-import Card from './components/Card.jsx'
-import Calendar from './components/Calender.jsx'
 import Modal from './components/Modal.jsx'
 function App() {
 
@@ -13,7 +10,6 @@ function App() {
       height: '100vh', // Adjust the height as needed
     }}>
       <Modal/>
-    {/* <Birth/> */}
     </div>
   )
 }
