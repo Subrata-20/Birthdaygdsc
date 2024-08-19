@@ -43,6 +43,7 @@ const Birth = ({ object }) => {
     <>
     
         <div className='w-[33%] absolute top-[50%] left-10'>
+          <span className='absolute -top-[80%] left-[60%] text-8xl drop-shadow-2xl shadow-black uppercase font-bold bg-gradient-to-r from-red-500 via-pink-500 to-pink-400 bg-clip-text text-transparent tracking-tight'>It's</span><span className='absolute -top-[76%] left-[93%] text-7xl drop-shadow-2xl shadow-black'>👉</span>
           <h1 className='text-8xl flex flex-col drop-shadow-2xl shadow-black uppercase font-bold bg-gradient-to-r from-red-500 via-pink-500 to-pink-400 bg-clip-text text-transparent'>
             <span className='text-[9rem]'>Happy</span>
             <span>Birthday!</span>

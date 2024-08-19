@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Birth from './birth';
+import Birth from './Birth';
 
 const UserInfoModal = ({ handleClose, handleSubmit }) => {
   const [name, setName] = useState('');
