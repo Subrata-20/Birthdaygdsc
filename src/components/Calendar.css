@@ -1,0 +1,97 @@
+/* Calendar Wrapper */
+.calendar-wrapper {
+    position: relative;
+    width: 320px;
+    height: 400px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  /* Calendar Rings */
+  .calendar-ring {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(to bottom, #cccccc 0%, #ffffff 100%);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    z-index: 1;
+  }
+  
+  .calendar-ring::before, .calendar-ring::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 10px;
+    background: #888;
+    border-radius: 5px;
+  }
+  
+  .calendar-ring::before {
+    left: 25%;
+  }
+  
+  .calendar-ring::after {
+    right: 25%;
+  }
+  
+  /* Calendar Page */
+  .calendar-page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: inset 0px 10px 20px rgba(0, 0, 0, 0.1);
+    transform-origin: top;
+    transform: rotateX(0deg);
+    transition: transform 0.6s ease-in-out;
+    z-index: 2;
+  }
+  
+  .calendar-wrapper:hover .calendar-page {
+    transform: rotateX(-180deg);
+  }
+  
+  /* Day Number */
+  .calendar-day {
+    font-size: 9rem;
+    font-weight: 800;
+    color: #333;
+    text-align: center;
+    line-height: 250px;
+  }
+  
+  /* Month Name */
+  .calendar-month {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #555;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: -20px;
+  }
+  
+  /* Top Edge of Calendar */
+  .calendar-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to bottom, #dddddd, #ffffff);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+  }
+  

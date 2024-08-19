@@ -1,0 +1,20 @@
+@keyframes cloudMove {
+  0% { transform: translateX(-90vw); }
+  100% { transform: translateX(100vw); }
+}
+
+@keyframes candleMove {
+  0% {
+    transform: scale(115%);
+  }
+  50% {
+    transform: scale(95%)  translateY(10%);
+  }
+  100% {
+    transform: scale(115%);
+  }
+}
+
+.animate-candleMove {
+  animation: candleMove 2s ease-in-out infinite;
+}
