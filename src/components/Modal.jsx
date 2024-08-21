@@ -34,7 +34,7 @@ const UserInfoModal = ({ handleClose, handleSubmit }) => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-sm font-semibold mb-2 text-gray-100">Birthdate (Day)</label>
+            <label className="block text-sm font-semibold mb-2 text-gray-100">Birthdate</label>
             <input 
               type="number" 
               className="w-full p-2 border border-gray-300 rounded outline-none" 
@@ -96,7 +96,7 @@ const Modal = () => {
 
   const handleSubmit = (data) => {
     setUserInfo(data);
-    console.log(data); // You can use this data wherever you need it
+    console.log(data);
   };
 
   return (
