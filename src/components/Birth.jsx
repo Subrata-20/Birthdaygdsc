@@ -39,12 +39,33 @@ const Birth = ({ object }) => {
     audio.currentTime = 0;
   };
 
+  const [countdown, setCountdown] = useState(3);
+  const [showCountdown, setShowCountdown] = useState(true);
+
+  useEffect(() => {
+    if (countdown > 0) {
+      const timer = setTimeout(() => {
+        setCountdown(countdown - 1);
+        document.querySelector('.countdown').style = ''
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else {
+      setShowCountdown(false);
+    }
+  }, [countdown]);
 
   return (
     <>
-      {/* <audio autoPlay loop>
+    <div></div>
+        <div className={`countdown absolute h-screen w-screen bg-black text-[10rem] text-white z-50 flex justify-center items-center ${showCountdown?'translate-y-0':'-translate-y-[100%]'} transition-transform duration-1000 ease-in-out`}>
+        {countdown > 0 ? <h1 className='flex justify-center items-center h-screen bg-gradient-to-br from-pink-600 to-purple-500 bg-clip-text text-transparent'>{countdown}</h1> : <h1 className='flex justify-center h-screen items-center bg-gradient-to-br from-pink-600 to-purple-500 bg-clip-text text-transparent'>Yayyy!</h1>}
+      </div>
+
+      {!showCountdown &&(
+        <audio autoPlay controlsList='pause' loop>
         <source src="/hbd.mp3" />
-      </audio> */}
+      </audio>
+      )}
 
 
       <div className='w-[33%] absolute top-[50%] left-10'>

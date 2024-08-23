@@ -19,7 +19,7 @@ const UserInfoModal = ({ handleClose, handleSubmit }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
-      <div className="bg-white backdrop-blur-sm bg-opacity-10 p-6 rounded-lg shadow-lg max-w-md w-full">
+      <div className="bg-white backdrop-blur-md bg-opacity-15 p-6 rounded-lg shadow-2xl shadow-black/30 max-w-md w-full">
         <h2 className="text-2xl font-bold mb-4 text-gray-100">Enter Your Details</h2>
         <form onSubmit={onSubmit}>
           <div className="mb-4">
