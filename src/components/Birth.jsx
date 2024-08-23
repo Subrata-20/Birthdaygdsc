@@ -4,12 +4,16 @@ import Card from './Card';
 import { TiArrowSortedDown } from "react-icons/ti";
 import '../App.css';
 import Calendar from './Calender';
+import { GiSoundOff } from "react-icons/gi";
+import { GiSoundOn } from "react-icons/gi";
 
 const Birth = ({ object }) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [audio] = useState(new Audio('theuned_happy-birthday-crowd(chosic.com).mp3'));
+  const hbd = document.querySelector('#ch');
+  const [isPlaying, setIsPlaying] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -54,19 +58,34 @@ const Birth = ({ object }) => {
     }
   }, [countdown]);
 
+  const togglePlayPause = () => {
+    const audio = document.querySelector('#ch');
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+
+
   return (
     <>
-    <div></div>
-        <div className={`countdown absolute h-screen w-screen bg-black text-[10rem] text-white z-50 flex justify-center items-center ${showCountdown?'translate-y-0':'-translate-y-[100%]'} transition-transform duration-1000 ease-in-out`}>
+      <div></div>
+      <div className={`countdown absolute h-screen w-screen bg-black text-[10rem] text-white z-50 flex justify-center items-center ${showCountdown ? 'translate-y-0' : '-translate-y-[100%]'} transition-transform duration-1000 ease-in-out`}>
         {countdown > 0 ? <h1 className='flex justify-center items-center h-screen bg-gradient-to-br from-pink-600 to-purple-500 bg-clip-text text-transparent'>{countdown}</h1> : <h1 className='flex justify-center h-screen items-center bg-gradient-to-br from-pink-600 to-purple-500 bg-clip-text text-transparent'>Yayyy!</h1>}
       </div>
 
-      {!showCountdown &&(
-        <audio autoPlay controlsList='pause' loop>
-        <source src="/hbd.mp3" />
-      </audio>
+      {!showCountdown && (
+        <audio id='ch' autoPlay controlsList='pause' loop>
+          <source src="/hbd.mp3" />
+        </audio>
       )}
 
+      <button onClick={togglePlayPause} className="absolute top-3 left-3 bg-white text-pink-500 text-2xl font-bold px-2 py-2 rounded-full z-40">
+        {isPlaying ? <GiSoundOn /> : <GiSoundOff />}
+      </button>
 
       <div className='w-[33%] absolute top-[50%] left-10'>
         <span className='absolute -top-[80%] left-[60%] text-8xl drop-shadow-xl shadow-black uppercase font-bold bg-gradient-to-r from-red-500 via-pink-500 to-pink-400 bg-clip-text text-transparent tracking-tight'>It's</span><span className='absolute -top-[76%] left-[93%] text-7xl drop-shadow-2xl shadow-black'>👉</span>
